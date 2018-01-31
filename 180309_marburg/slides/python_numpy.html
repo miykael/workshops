@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Introduction</title>
+    <title>Numpy</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <style>
       @import url(https://fonts.googleapis.com/css?family=Droid+Serif);
@@ -170,66 +170,54 @@ name: inverse
 layout: true
 class: center, middle, inverse
 ---
-# Some fancy title
-### ~1h
+# Introduction to Numpy
+### ~40min
 ---
 name: content
-class: center, middle
+class: left, middle
 layout: false
-
-## Roadmap
-
-### [Introduction](#intro)
-### [Exercises](#exercise)
-### [Important Points](#important)
-### [Questions](#questions)
-
----
 name: intro
 
 ## Introduction
 
-* Some very relevant information
+* `numpy` is **the** fundamental package for scientific computing with Python
 
-* Some other very relevant information
-
-* Please use the command `the_command`
-
---
-
-* Or, use this command
-
-```python
-text='hello world'
-
-print(text)
->>> hello world
-```
+* `numpy` runs very quickly and is the first step to optimize your code
 
 ---
 
 name: exercise
 
-## Exercises
+.left-column[
 
-- Please go to [this page](http://www.google.ch)
-
+## Hands On
+### ~35min
+]
+.right-column[
+Please go now through the jupyter notebook `04_python_numpy.ipynb`.
+]
 --
+.right-column[
 
-- It should look something like the following picture:
+##Important Points
 
-<img src="https://miykael.github.io/nipype_tutorial/static/images/logoNipype_tutorial.png" width="75%" />
-.right[Some reference: *Notter, et al. 2020*]
+```python
+# Indexing & Slicing
+>>> data = np.arange(10)
+>>> data[data%2==0]
+array([0, 2, 4, 6, 8])
 
----
-class: middle
-layout: true
----
-name: important
+# Elementwise operations
+>>> data**2
+array([ 0,  1,  4,  9, 16, 25, 36, 49, 64, 81])
 
-## Important Points
+# Basic reductions
+>>> data.std()
+2.8722813232690143
 
-#### [Some subtitle with a link](https://www.google.ch)
+# And much more...
+```
+]
 
 ---
 layout: true

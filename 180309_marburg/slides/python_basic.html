@@ -170,66 +170,68 @@ name: inverse
 layout: true
 class: center, middle, inverse
 ---
-# Some fancy title
+# Introduction to Python
 ### ~1h
 ---
 name: content
-class: center, middle
+class: left, middle
 layout: false
-
-## Roadmap
-
-### [Introduction](#intro)
-### [Exercises](#exercise)
-### [Important Points](#important)
-### [Questions](#questions)
-
----
 name: intro
 
 ## Introduction
 
-* Some very relevant information
+* Python is an interpreted high-level programming language
 
-* Some other very relevant information
+* The emphasizes is on code readability, and a syntax structure that allows programmers to express concepts in fewer lines of code.
 
-* Please use the command `the_command`
 
---
-
-* Or, use this command
-
+### Example
 ```python
-text='hello world'
+>>> text='hello world'
 
-print(text)
->>> hello world
+>>> print(text)
+hello world
+
+>>> 'world' in text
+True
 ```
-
 ---
 
 name: exercise
 
-## Exercises
+.left-column[
 
-- Please go to [this page](http://www.google.ch)
-
+## Hands On
+### ~45min
+]
+.right-column[
+Please open now the jupyter notebook `01_python_basic.ipynb`.
+]
 --
+.right-column[
 
-- It should look something like the following picture:
+##Important Points
 
-<img src="https://miykael.github.io/nipype_tutorial/static/images/logoNipype_tutorial.png" width="75%" />
-.right[Some reference: *Notter, et al. 2020*]
+```python
+# Modules
+>>> import numpy as np
 
----
-class: middle
-layout: true
----
-name: important
+# Variable assignment
+>>> text = 'Marburg'
 
-## Important Points
+# Strings and List slicing
+>>> 'Hello World'[6::2]
+'Wrd'
 
-#### [Some subtitle with a link](https://www.google.ch)
+# Identation, Functions & Control Flow
+def square_odd_number(number):
+    if number % 2 != 0:
+        return number**2
+    else:
+        return 0
+```
+### But how do you debug code?
+]
 
 ---
 layout: true
