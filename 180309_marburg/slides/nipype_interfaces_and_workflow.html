@@ -170,66 +170,90 @@ name: inverse
 layout: true
 class: center, middle, inverse
 ---
-# Some fancy title
+# Nipype - Interfaces & Workflows
+## Learn and understand the basics
 ### ~1h
 ---
 name: content
-class: center, middle
+class: left, middle
 layout: false
-
-## Roadmap
-
-### [Introduction](#intro)
-### [Exercises](#exercise)
-### [Important Points](#important)
-### [Questions](#questions)
-
----
 name: intro
 
-## Introduction
+.left-column[
 
-* Some very relevant information
+## Basic Concepts
+### ~45min
+]
+.right-column[
+Nipype is very easy to learn, but nonetheless requires the understanding of the following basic concepts:
 
-* Some other very relevant information
+* `Interfaces`
 
-* Please use the command `the_command`
+* `Nodes`
 
---
+* `Workflows`
 
-* Or, use this command
+* `Data Input`
 
-```python
-text='hello world'
+* `Data Output`
 
-print(text)
->>> hello world
-```
+* `Execution Plugins`
 
----
-
-name: exercise
-
-## Exercises
-
-- Please go to [this page](http://www.google.ch)
-
---
-
-- It should look something like the following picture:
-
-<img src="https://miykael.github.io/nipype_tutorial/static/images/logoNipype_tutorial.png" width="75%" />
-.right[Some reference: *Notter, et al. 2020*]
+Please go through the corresponding notebooks in the `Basic Concepts` section of the tutorial to learn more.
+]
 
 ---
-class: middle
-layout: true
+
+## Recap
+
+* **Interfaces**
+
+    ```python
+    from nipype.interfaces.fsl import BET
+    BET.help()  # To get help
+    ```
+
+* **Nodes**
+
+    ```python
+    bet = Node(BET(frac=0.3), name='bet_node')
+    ```
+
+* **Workflows**
+
+    ```python
+    wf = Workflow(name="smoothflow", base_dir="/output/working_dir")
+    wf.connect([(smooth, mask, [("out_file", "in_file")])])
+    ```
+
+* **Data Input**: e.g. `DataGrabber`, `SelectFinder`, etc.
+
+* **Data Output**: e.g. `DataSink`
+
+* **Execution Plugins**
+
+    ```python
+    workflow.run(plugin='Linear')
+    workflow.run(plugin='MultiProc', plugin_args={'n_procs': 4})
+    workflow.run('SGEGraph', plugin_args={'qsub_args': '-q many'})
+    ```
 ---
-name: important
 
-## Important Points
+## Additionally
 
-#### [Some subtitle with a link](https://www.google.ch)
+Nipype has many more important concepts to learn. Many are not so important at the very beginning but allow much more flexibility over data handeling and data flow.
+
+For this reason, we will briefly look at the following concepts:
+
+* `Iterables`
+
+* `IdentityInterface`
+
+* `Function Node`
+
+* `MapNode`
+
+* `nipypecli crash`, e.g how to handle errors and crashes
 
 ---
 layout: true
