@@ -23,10 +23,18 @@ RUN conda create -y -q --name mne python=2.7 \
     && sync && conda clean -tipsy && sync \
     && /bin/bash -c "source activate mne \
     && pip install -q --no-cache-dir PySurfer \
-                                     mne" \
+                                     mne \
+                                     pdvega" \
     && sync \
     && sed -i '$isource activate neuro' $ND_ENTRYPOINT
 
+# Install PdVega
+RUN bash -c "source activate neuro \
+    && pip install pdvega \
+    && jupyter nbextension install --sys-prefix --py vega3 \
+    && jupyter nbextension enable vega3 --py --sys-prefix"
+
+# Setup MNE environment
 RUN /bin/bash -c "printf '#!/bin/bash\nsource activate mne\njupyter notebook\' > /home/neuro/mne.sh"
 RUN chmod +x /home/neuro/mne.sh
 
