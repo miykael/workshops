@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Introduction</title>
+    <title>Jupyter Notebook</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <style>
       @import url(https://fonts.googleapis.com/css?family=Droid+Serif);
@@ -170,66 +170,97 @@ name: inverse
 layout: true
 class: center, middle, inverse
 ---
-# Some fancy title
+# Jupyter Notebook
 ### ~1h
+
 ---
 name: content
-class: center, middle
 layout: false
 
-## Roadmap
-
-### [Introduction](#intro)
-### [Exercises](#exercise)
-### [Important Points](#important)
-### [Questions](#questions)
-
----
 name: intro
 
 ## Introduction
 
-* Some very relevant information
+There are many ways on how you can program in Python:
 
-* Some other very relevant information
+  - With a **terminal** and a **text editor**
 
-* Please use the command `the_command`
+      - We can recommend [IPython](https://ipython.org/) and [Sublime Text](https://www.sublimetext.com/)
+
+      - But, it's sometimes difficult to keep track of what's happening
 
 --
 
-* Or, use this command
+  - With an **integrated development environment (IDE)** that has a nice graphical user interface (**GUI**), i.e. something that looks like MATLAB
 
-```python
-text='hello world'
+      - Makes transition from other languages easy
 
-print(text)
->>> hello world
-```
+      - We can recommend [`Spyder`](https://pythonhosted.org/spyder/)
+
+--
+
+  - With an interactive and dynamic **web application**, such as [Jupyter Notebook](http://jupyter.org/)
+
+      - In our opinion the best way for scientists to learn programming, exploring their data and visualizing and communicating their results
+
+---
+
+name: jupyter
+
+## Jupyter Notebook
+
+An open-source web application that allows you to create and share documents that contain live code, equations, visualizations and narrative text.
+
+Jupyter Notebooks was created for Python, but can also be use for other progamming languages, such as R, Julia, Scala, HTML, etc.
+
+<img src="images/jupyterpreview.png" width="75%" />
+
+---
+
+name: anaconda
+
+## Anaconda
+
+The best way to get a good, stable and flexible Python environment on your system is with [Anaconda](https://www.anaconda.com/download/#linux).
+
+Anaconda provides you with almost all python packages you need. For the rest use `pip` or `git`.
+
+Anaconda allows you to have multiple environment versions next to each.
+
+For this workshop you don't need Anaconda, as we will be using a Docker environment, but feel free to ask, how to setup your system, so that you don't depend on a Docker image.
 
 ---
 
 name: exercise
 
-## Exercises
+.left-column[
 
-- Please go to [this page](http://www.google.ch)
+## Hands On
+### ~10min
+]
+.right-column[
+Please go now through the jupyter notebook [`introduction_jupyter-notebook.ipynb`](../../nipype_tutorial/notebooks/introduction_jupyter-notebook.ipynb) from the `nipype_tutorial`.
+]
+
+---
+
+name: fuss
+
+## Why are Jupyter Notebooks are great for Research?
+
+1. It increases the learning curve in Python drastically.
 
 --
+2. It's a great tool to share data, results and code and therefore is a great tool for open science and reproducible research.
 
-- It should look something like the following picture:
+    - See for example the [LIGO results](https://losc.ligo.org/s/events/GW150914/LOSC_Event_tutorial_GW150914.html)
 
-<img src="https://miykael.github.io/nipype_tutorial/static/images/logoNipype_tutorial.png" width="75%" />
-.right[Some reference: *Notter, et al. 2020*]
+--
+3. It's a great teaching tool
 
----
-class: middle
-layout: true
----
-name: important
+    - Interactive Notebooks via [binder](https://mybinder.org/)
 
-## Important Points
-
-#### [Some subtitle with a link](https://www.google.ch)
+    - See this workshop (hopefully)
 
 ---
 layout: true
