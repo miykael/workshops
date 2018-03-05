@@ -63,10 +63,13 @@ RUN bash -c "source activate neuro \
     && jupyter nbextension install --sys-prefix --py vega3 \
     && jupyter nbextension enable vega3 --py --sys-prefix"
 
-
 # Make sure that jupyter notebook can chose the environments
 RUN bash -c "source activate neuro \
-    && conda install -y -q nb_conda"
+    && conda install -y -q nb_conda \
+                           bokeh \
+                           holoviews \
+                           plotly \
+                           scikit-image"
 
 USER neuro
 
