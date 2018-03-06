@@ -29,6 +29,7 @@ RUN bash -c "source activate neuro \
 RUN bash -c "source activate neuro \
     && conda install -y -q bokeh \
                            holoviews \
+                           nilearn \
                            plotly \
                            scikit-image"
 
