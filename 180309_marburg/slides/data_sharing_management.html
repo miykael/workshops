@@ -173,6 +173,8 @@ class: center, middle, inverse
 # Data management and sharing
 ### ~1,5 h
 
+#### this presentation HEAVILY "borrows" from [Chris Gorgolewski's presentations on the respective topics](https://www.slideshare.net/chrisfilo1/towards-open-and-reproducible-neuroscience-in-the-age-of-big-data), [the 2017 nipype workshop and hackweek](http://nipy.org/workshops/2017-03-boston/index.html), as well as the mentioned tools'/programs' websites and docs
+
 ---
 
 name: content
@@ -274,9 +276,23 @@ name: datamanage
 
     2. don't reinvent the wheel
 
-    3. 80/20 rule
+    3. some metadata is better than no metadata
 
---
+    4. don't rely on external software [databases] or complicated file formats [RDF]
+
+    5. aim to capture 80% of experiment but give the remaining 20% space to extend the standard
+
+.left[<small>[*Gorgolewski, K. J., talk at NIH and MIT, January 2017](https://www.slideshare.net/chrisfilo1/towards-open-and-reproducible-neuroscience-in-the-age-of-big-data)</small>]
+
+---
+
+name: datamanage
+
+## data and BIDS
+
+### BIDS - Brain Imaging Data Structure
+
+--> a new standard for organizing human neuroimaging datasets
 
   - who should use it?
 
@@ -288,6 +304,9 @@ name: datamanage
 
 --
     4. YOU
+
+.left[<small>[*Gorgolewski, K. J., talk at NIH and MIT, January 2017](https://www.slideshare.net/chrisfilo1/towards-open-and-reproducible-neuroscience-in-the-age-of-big-data)</small>]
+
 
 ---
 
@@ -422,7 +441,7 @@ name: heudiconv2
 
   - getting [HeuDiConv](https://github.com/nipy/heudiconv)
 
-    - with docker it's as easy as docker pull nipy/heudiconv:latest`
+    - with docker it's as easy as `docker pull nipy/heudiconv:latest`
 
     - without it, you'll need theses requirements: [`python 2.7`](https://www.python.org/downloads/release/python-2714/), [`nipype`](http://nipype.readthedocs.io/en/latest/), [`dcmtack`](https://github.com/moloney/dcmstack), [`dcm2niix`](https://github.com/rordenlab/dcm2niix)
 
@@ -455,6 +474,8 @@ $ docker run -it --rm -v /path/to/store/dicoms:/data --entrypoint=bash nipy/heud
 ```
 
 Please open this presentation on your machine to follow the hands on (for easy copy / paste). 
+
+.left[<small>[*from the 2017 nipype workshop and hackweek, March 2017](http://nipy.org/workshops/2017-03-boston/lectures/bids-heudiconv/#1)</small>]
 
 
 ]
@@ -764,12 +785,530 @@ name: nowwhat
 
 #### That sounds cool and fancy, but how to make use of BIDS?
 
-#### 1. BIDS apps
+#### 1. BIDS apps 
 
 <img src="images/bids-apps.png" width="75%" />
 
 #### 2. pyBIDS - a Python API for working with BIDS datasets
 
+---
+
+name: bidsapps
+### data and BIDS
+
+#### BIDS apps - there's really an app for everything these days, isn't it?
+
+--
+
+- BIDS apps are portable neuroimage pipelines that support BIDS datasets
+
+--
+
+- each BIDS app has the same core set of command line arguments, making them easy to run and integrate into automated platforms
+
+--
+
+- BIDS apps are constructed in a way that does not depend on any software outside of the image other than the container engine
+
+--
+
+- BIDS apps are deposited in the Docker Hub repository, making them openly accessible
+
+--
+
+- each app is versioned and all of the historical versions are available to download (easy to switch between versions)
+
+--
+
+- by reporting the BIDS App name and version in a manuscript, authors can provide others with the ability to exactly replicate their analysis 
+  workflow
+
+--
+
+- works on linux, macOS, windows
+
+--
+
+- can be transformed to singularity containers for applications on HPCs
+
+.left[<small>[*Gorgolewski, K. J., talk at NIH and MIT, January 2017](https://www.slideshare.net/chrisfilo1/towards-open-and-reproducible-neuroscience-in-the-age-of-big-data) and [BIDS apps website](http://bids-apps.neuroimaging.io/about/)</small>]
+
+---
+
+name: bidsapps2
+### data and BIDS
+
+#### BIDS apps - there's really an app for everything these days, isn't it?
+
+<img src="images/bids-apps-structure.png" width="100%" />
+.left[<small>[*Gorgolewski, K. J., talk at NIH and MIT, January 2017](https://www.slideshare.net/chrisfilo1/towards-open-and-reproducible-neuroscience-in-the-age-of-big-data)</small>]
+
+---
+name: bidsapps3
+### data and BIDS
+
+#### BIDS apps - there's really an app for everything these days, isn't it?
+
+- just check the vast amount of divers BIDS apps at </br>
+  [http://bids-apps.neuroimaging.io](http://bids-apps.neuroimaging.io)
+
+<img src="images/bids-apps.png" width="100%" />
+
+---
+
+name: bidsapps4
+### data and BIDS
+
+#### BIDS apps - there's really an app for everything these days, isn't it?
+
+- we're going to (very) briefly talk about and check 4 amazingly useful </br> BIDS apps
+
+
+--
+- [MRIQC](http://mriqc.readthedocs.io/en/latest/)
+
+--
+- [FMRIPREP](http://fmriprep.readthedocs.io/en/latest/)
+
+--
+
+- [mindboggle](http://www.mindboggle.info)
+
+--
+
+- [C-PAC](http://fcp-indi.github.io/docs/user/index.html)
+
+---
+name: bidsapps5
+### data and BIDS
+
+#### BIDS apps - [MRIQC](http://mriqc.readthedocs.io/en/latest/)
+
+<img src="images/MRIQC_artefact_1.png" width="100%" />
+.left[<small>[*Esteban, O., FMRIPREP and MRIQC Focus at Stanford, January 2017](https://www.slideshare.net/OscarEsteban5/fmriprep-mriqc-focus-mriqc)</small>]
+
+---
+name: bidsapps6
+### data and BIDS
+
+#### BIDS apps - [MRIQC](http://mriqc.readthedocs.io/en/latest/)
+<img src="images/MRIQC_artefact_2.png" width="95%" />
+.left[<small>[*Esteban, O., FMRIPREP and MRIQC Focus at Stanford, January 2017](https://www.slideshare.net/OscarEsteban5/fmriprep-mriqc-focus-mriqc)</small>]
+
+---
+name: bidsapps7
+### data and BIDS
+
+#### BIDS apps - [MRIQC](http://mriqc.readthedocs.io/en/latest/)
+
+<img src="images/MRIQC_artefact_3.png" width="100%" />
+.left[<small>[*Esteban, O., FMRIPREP and MRIQC Focus at Stanford, January 2017](https://www.slideshare.net/OscarEsteban5/fmriprep-mriqc-focus-mriqc)</small>]
+
+---
+name: bidsapps8
+### data and BIDS
+
+#### BIDS apps - [MRIQC](http://mriqc.readthedocs.io/en/latest/)
+<img src="images/MRIQC_artefact_4.png" width="65%" />
+.left[<small>[*Esteban, O., FMRIPREP and MRIQC Focus at Stanford, January 2017](https://www.slideshare.net/OscarEsteban5/fmriprep-mriqc-focus-mriqc)</small>]
+
+---
+name: bidsapps9
+### data and BIDS
+
+#### BIDS apps - [MRIQC](http://mriqc.readthedocs.io/en/latest/)
+
+<img src="images/MRIQC_artefact_5.png" width="100%" />
+.left[<small>[*Esteban, O., FMRIPREP and MRIQC Focus at Stanford, January 2017](https://www.slideshare.net/OscarEsteban5/fmriprep-mriqc-focus-mriqc)</small>]
+
+---
+name: bidsapps10
+### data and BIDS
+
+#### BIDS apps - [MRIQC](http://mriqc.readthedocs.io/en/latest/)
+
+- What's the best option to assess, evaluate and control the quality of neuroimaging data?
+
+
+--
+- manually? --> time consuming, unreliable, inter-rater bias, intra-rater bias
+
+--
+- automated? --> major differences between algorithms
+
+--
+- both:
+
+--
+	- exclusion criteria should be as objective as possible
+
+	- vast variety of data acquisition and related problems (type of sequence, scanner type, scanner malfunction, head padding, participants (instructions))
+
+.left[<small>[*Esteban, O., FMRIPREP and MRIQC Focus at Stanford, January 2017](https://www.slideshare.net/OscarEsteban5/fmriprep-mriqc-focus-mriqc)</small>]
+---
+name: bidsapps11
+### data and BIDS
+
+#### BIDS apps - [MRIQC](http://mriqc.readthedocs.io/en/latest/)
+
+- MRIQC - quality control for structural and functional images
+
+--
+
+	- automated workflow
+
+	- extraction of structural and functional image quality metrics (IQMs):
+
+		- physical phantoms ([Price et al., 1990](http://dx.doi.org/10.1118/1.596566))
+
+		- no-reference image quality metrics ([Woodard and Carley-Spencer, 2006](http://doi.org/10.1385/NI:4:3:243))   
+
+		- aim artifacts and analyze noise distribution ([Mortamet et al., 2009](http://doi.org/10.1002/mrm.21992))
+
+		- combined general volumetric and artifact-targeted IQMs ([Pizarro et al., 2016](https://doi.org/10.3389/fninf.2016.00052))
+
+--
+
+	- IQMs and visual reports per subject, as well as the whole group
+
+.left[<small>[*Esteban, O., FMRIPREP and MRIQC Focus at Stanford, January 2017](https://www.slideshare.net/OscarEsteban5/fmriprep-mriqc-focus-mriqc)</small>]
+---
+
+name: bidsapps12
+### data and BIDS
+
+#### BIDS apps - [MRIQC](http://mriqc.readthedocs.io/en/latest/)
+
+- MRIQC - quality control for structural and functional images
+
+<img src="images/MRIQC_design.png" width="80%" />
+.left[<small>[*Esteban, O., FMRIPREP and MRIQC Focus at Stanford, January 2017](https://www.slideshare.net/OscarEsteban5/fmriprep-mriqc-focus-mriqc)</small>]
+
+---
+name: bidsapps11
+### data and BIDS
+
+#### BIDS apps - [MRIQC](http://mriqc.readthedocs.io/en/latest/)
+
+- installing and running MRIQC
+
+--
+
+	- "bare-metal" installation (only python 3.*) - not recommended
+
+		- ``pip install -r \ https://raw.githubusercontent.com/poldracklab/mriqc/master/requirements.txt
+           pip install git+https://github.com/poldracklab/mriqc.git``
+
+		- dependencies: [FSL](https://fsl.fmrib.ox.ac.uk/fsl/fslwiki), [AFNI](https://afni.nimh.nih.gov), [ANTs](http://stnava.github.io/ANTs/)  
+		
+.left[<small>[*Esteban, O., FMRIPREP and MRIQC Focus at Stanford, January 2017](https://www.slideshare.net/OscarEsteban5/fmriprep-mriqc-focus-mriqc) and [MRIQC docs](https://mriqc.readthedocs.io/en/latest/install.html)</small>]
+
+---
+name: bidsapps12
+### data and BIDS
+
+#### BIDS apps - [MRIQC](http://mriqc.readthedocs.io/en/latest/)
+
+- installing and running MRIQC
+
+--
+
+	- docker version
+
+	  - docker pull poldracklab/MRIQC
+
+	  - docker run -it --rm -v <bids_dir>:/data:ro -v <output_dir>:/out poldracklab/mriqc:latest /data /out participant 
+
+
+.left[<small>[*Esteban, O., FMRIPREP and MRIQC Focus at Stanford, January 2017](https://www.slideshare.net/OscarEsteban5/fmriprep-mriqc-focus-mriqc) and [MRIQC docs](https://mriqc.readthedocs.io/en/latest/docker.html)</small>]
+
+---
+name: bidsapps12
+### data and BIDS
+
+#### BIDS apps - [MRIQC](http://mriqc.readthedocs.io/en/latest/)
+
+- MRIQC - anatomical workflow
+
+--
+
+<img src="images/MRIQC_anat_workflow.svg" width="100%" />
+.left[<small>*[MRIQC docs](https://mriqc.readthedocs.io/en/latest/workflows.html), (C) Esteban, O. </small>]
+
+---
+name: bidsapps12
+### data and BIDS
+
+#### BIDS apps - [MRIQC](http://mriqc.readthedocs.io/en/latest/)
+
+- MRIQC - anatomical IQMs
+
+--
+
+<img src="images/MRIQC_structural_IQMs.png" width="80%" />
+.left[<small>*[Esteban, O., FMRIPREP and MRIQC Focus at Stanford, January 2017](https://www.slideshare.net/OscarEsteban5/fmriprep-mriqc-focus-mriqc)</small>]
+
+---
+name: mriqchandson
+
+.left-column[
+
+## Hands On
+## [MRIQC - I](http://mriqc.readthedocs.io/en/latest/)
+### ~5min
+]
+.right-column[
+Prerequisites:
+
+Please open this presentation on your machine to follow the hands on. 
+
+We're gonna go through the example anatomical report from the [ABIDE dataset](http://fcon_1000.projects.nitrc.org/indi/abide/), which can be found [here](http://web.stanford.edu/group/poldracklab/mriqc/reports/anat_group.html).
+
+.left[<small>[*from MRIQC poldrack lab site](https://poldracklab.github.io/mriqc/)</small>]
+
+
+Subsequently, we're gonna check the reports of your own MRIQC command!
+
+]
+
+---
+name: bidsapps12
+### data and BIDS
+
+#### BIDS apps - [MRIQC](http://mriqc.readthedocs.io/en/latest/)
+
+- MRIQC - functional workflow
+
+--
+
+<img src="images/MRIQC_func_workflow.svg" width="100%" />
+.left[<small>*[MRIQC docs](https://mriqc.readthedocs.io/en/latest/workflows.html), (C) Esteban, O. </small>]
+
+---
+name: bidsapps12
+### data and BIDS
+
+#### BIDS apps - [MRIQC](http://mriqc.readthedocs.io/en/latest/)
+
+- MRIQC - functional IQMs
+
+--
+
+<img src="images/MRIQC_functional_IQMs.png" width="80%" />
+.left[<small>*[Esteban, O., FMRIPREP and MRIQC Focus at Stanford, January 2017](https://www.slideshare.net/OscarEsteban5/fmriprep-mriqc-focus-mriqc)</small>]
+
+---
+name: mriqchandson2
+
+.left-column[
+
+## Hands On
+## [MRIQC - II](http://mriqc.readthedocs.io/en/latest/)
+### ~5min
+]
+.right-column[
+Prerequisites:
+
+Please open this presentation on your machine to follow the hands on. 
+
+We're gonna go through the example functional report from the [ABIDE dataset](http://fcon_1000.projects.nitrc.org/indi/abide/), which can be found [here](http://web.stanford.edu/group/poldracklab/mriqc/reports/func_group.html).
+
+.left[<small>[*from MRIQC poldrack lab site](https://poldracklab.github.io/mriqc/)</small>]
+
+
+Subsequently, we're gonna check the reports of your own MRIQC command!
+
+]
+
+---
+name: bidsapps12
+
+### data and BIDS
+
+#### BIDS apps - [MRIQC](http://mriqc.readthedocs.io/en/latest/)
+
+- MRIQC - classifier for T1w images
+
+--
+
+<img src="images/MRIQC_OHBM2017-poster.png" width="80%" />
+.left[<small>*[MRIQC docs](https://mriqc.readthedocs.io/en/latest/workflows.html), (C) Esteban, O., OHBM 2017</small>]
+
+---
+name: bidsapps12
+
+### data and BIDS
+
+#### BIDS apps - [MRIQC](http://mriqc.readthedocs.io/en/latest/)
+
+- MRIQC - classifier for T1w images
+
+ - MRIQC is released with two classifiers (already trained) to predict image quality of T1w images
+
+ - trained on [ABIDE](http://fcon_1000.projects.nitrc.org/indi/abide/) and [DS030](https://openfmri.org/dataset/ds000030/)
+
+ - predicts the quality labels (0=”accept”, 1=”reject”) on a features table computed by mriqc 
+
+--
+
+ - the command itself: mriqc_clf --load-classifier -X aMRIQC.csv
+
+   - where aMRIQC.csv is the file T1w.csv generated by the group level run of mriqc
+--
+
+ - also possible to build and train custom classifiers 
+
+.left[<small>*[MRIQC docs](https://mriqc.readthedocs.io/en/latest/workflows.html), (C) Esteban, O. </small>]
+---
+name: bidsapps12
+
+### data and BIDS
+
+#### BIDS apps - [FMRIPREP](http://fmriprep.readthedocs.io/en/latest/index.html)
+
+- What is it?
+
+ - fMRI data preprocessing tool
+
+ - denoising and normalization
+
+--
+
+- What it is not
+
+ - GLM
+
+ - DCM
+
+ - connectivity
+
+ - dynamics
+
+ - etc.
+
+.left[<small>[*Gorgolewski, K. J., presentaion at Stanford, January 2017](https://www.slideshare.net/chrisfilo1/fmriprep-robust-and-easy-to-use-fmri-preprocessing-pipeline)</small>]
+---
+name: bidsapps12
+
+### data and BIDS
+
+#### BIDS apps - [FMRIPREP](http://fmriprep.readthedocs.io/en/latest/index.html)
+
+- FMRIPREP - principles
+
+--
+
+ - easy to install and use
+
+--
+
+ - state-of-the-art interface
+
+--
+
+ - robust to variations in scan acquisition protocols
+
+--
+
+ - minimal user input
+
+--
+
+ - easy interpretable and comprehensive error and output reporting
+
+--
+
+ - "glass" rather than "black" box
+
+
+.left[<small>[*Gorgolewski, K. J., presentaion at Stanford, January 2017](https://www.slideshare.net/chrisfilo1/fmriprep-robust-and-easy-to-use-fmri-preprocessing-pipeline)</small>]
+---
+name: bidsapps12
+
+### data and BIDS
+
+#### BIDS apps - [FMRIPREP](http://fmriprep.readthedocs.io/en/latest/index.html)
+
+- FMRIPREP - what's happening?
+
+--
+
+ - T1w processing
+
+ 	- N4 bias field correction (ANTs)
+
+ 	- skull stripping (ANTs)
+
+ 	- 3 class tissue segmentation (FSL FAST)
+
+ 	- robust mni coregistration (ANTs)
+--
+
+ - EPI processing
+
+ 	- motion correction (FSL MCFLIRT)
+
+ 	- skull stripping (nilearn)
+
+ 	- coregistration to T1 (FSL FLIRT with BBR)
+
+
+.left[<small>[*Gorgolewski, K. J., presentaion at Stanford, January 2017](https://www.slideshare.net/chrisfilo1/fmriprep-robust-and-easy-to-use-fmri-preprocessing-pipeline)</small>]
+---
+name: bidsapps12
+
+### data and BIDS
+
+#### BIDS apps - [FMRIPREP](http://fmriprep.readthedocs.io/en/latest/index.html)
+
+- FMRIPREP - what's happening?
+
+--
+
+ - transformations
+
+ 	- motion correction affines
+
+ 	- epi --> T1 affine
+
+ 	- T1 --> MNI affine
+
+ 	- T1 --> MNI wrap field
+
+ 	- single interpolation step
+
+ 	- no upsampling (keeping original voxel size)
+
+.left[<small>[*Gorgolewski, K. J., presentaion at Stanford, January 2017](https://www.slideshare.net/chrisfilo1/fmriprep-robust-and-easy-to-use-fmri-preprocessing-pipeline)</small>]
+---
+name: bidsapps12
+
+### data and BIDS
+
+#### BIDS apps - [FMRIPREP](http://fmriprep.readthedocs.io/en/latest/index.html)
+
+- FMRIPREP - what's happening?
+
+--
+
+ - confounds
+
+ 	- DVARS
+
+ 	- framewise displacement
+
+ 	- global signal
+
+ 	- mean tissue signals
+
+ 	- CompCor (temporal and anatomical)
+--
+
+ - reports
+
+ 	- quality assesment
+
+.left[<small>[*Gorgolewski, K. J., presentaion at Stanford, January 2017](https://www.slideshare.net/chrisfilo1/fmriprep-robust-and-easy-to-use-fmri-preprocessing-pipeline)</small>]
 ---
 layout: true
 class: center, middle, inverse
@@ -777,7 +1316,7 @@ class: center, middle, inverse
 name: questions
 
 # Questions?
-
+---
     </textarea>
     <script src="https://gnab.github.io/remark/downloads/remark-latest.min.js" type="text/javascript">
     </script>

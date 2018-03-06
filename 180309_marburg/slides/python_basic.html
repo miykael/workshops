@@ -174,13 +174,13 @@ class: center, middle, inverse
 ### ~1h
 ---
 name: content
-class: left, middle
+class: left
 layout: false
 name: intro
 
 ## Introduction
 
-* Python is an interpreted high-level programming language
+* Python is an **interpreted high-level** programming language
 
 * The emphasizes is on code readability, and a syntax structure that allows programmers to express concepts in fewer lines of code.
 
@@ -207,32 +207,86 @@ name: exercise
 .right-column[
 Please go now through the jupyter notebook `01_python_basic.ipynb`
 
-]
---
-.right-column[
+Try to get till `Exercise 2`, just before `Classes`.
 
-##Important Points
+]
+
+---
+name: important1
+class: left
+layout: false
+name: intro
+
+## Important to know - Part 1
 
 ```python
-# Modules
+# Modules & Help
 >>> import numpy as np
-
-# Variable assignment
->>> text = 'Marburg'
-
-# Strings and List slicing
+>>> np.mean?
+```
+--
+```python
+# Variable assignment and variable type
+>>> text = 'Marburg'    # Type string
+>>> number1 = 5         # Type integer
+>>> number2 = 5.0       # Type float
+>>> number1 == number2  # Type boolean
+```
+--
+```python
+# Strings and list slicing
 >>> 'Hello World'[6::2]
 'Wrd'
-
-# Identation, Functions & Control Flow
-def square_odd_number(number):
-    if number % 2 != 0:
-        return number**2
-    else:
-        return 0
 ```
-### But how do you debug code?
-]
+--
+```python
+# Lists, Tuples, Dictionaries
+>>> a_list = [1, 3, 5, 7, 10]  # content can be changed
+>>> a_tuple = (1, 3, 5, 7, 10) # content cannot be changed
+>>> a_dict = {'name': 'michael',
+>>>           'hobbies': ['chocolat', 'programming', 24]}
+>>> a_dict['hobbies'][1]
+'programming'
+```
+
+### Important: Indexing beginns at `0`
+
+---
+name: important2
+class: left
+layout: false
+name: intro
+
+## Important to know - Part 2
+
+```python
+# List comprehension
+>>> [i**2 for i in range(5)]
+[0, 1, 4, 9, 16]
+```
+--
+```python
+# Indentation, Functions & Control Flow
+def square_positive_odd_number(number):
+    if number % 2 != 0 and number > 0:
+        answer = 'The square of your number is: '
+        answer += str(number**2)
+    elif number < 0:
+        answer = 'Your number is negative'
+    else:
+        answer = 'Your number is positive but even'
+    return answer
+```
+--
+```python
+# Loops (for & while) and breaks
+for i in range(-5, 20):
+    response = square_positive_odd_number(i)
+    print(response)
+
+    if i >= 10:
+      break
+```
 
 ---
 layout: true
