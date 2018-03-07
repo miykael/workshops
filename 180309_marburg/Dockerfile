@@ -46,7 +46,7 @@ RUN conda create -y -q --name py27 python=2.7 \
                                    ipython \
                                    jupyter \
                                    jupyter_contrib_nbextensions \
-                                   matplotlib \
+                                   matplotlib=2.1 \
                                    mayavi \
                                    nbformat \
                                    nibabel \
@@ -78,7 +78,7 @@ RUN conda create -y -q --name py27 python=2.7 \
 #---------------------------------------
 RUN bash -c "source activate neuro \
     && conda install -y -q jupyter \
-                           matplotlib \
+                           matplotlib=2.1 \
                            scikit-learn \
                            scipy \
                            pandas \
