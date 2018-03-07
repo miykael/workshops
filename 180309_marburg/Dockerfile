@@ -80,13 +80,12 @@ RUN conda create -y -q --name py27 python=2.7 \
 RUN bash -c "source activate neuro \
     && conda install -y -q jupyter \
                            matplotlib \
-                           mayavi \
                            scikit-learn \
                            scipy \
-                           spyder \
+                           pandas \
     && conda clean -tipsy \
-    && pip install -q --no-cache-dir mne \
-                                     PySurfer"
+    && pip install -q --no-cache-dir \
+        git+git://github.com/mne-tools/mne-python.git@10b9ab9ef352a5f2fca4e786046b3c7ca7cf1098"
 
 USER root
 
