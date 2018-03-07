@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Introduction</title>
+    <title>Nipype: Basic Concepts</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <style>
       @import url(https://fonts.googleapis.com/css?family=Droid+Serif);
@@ -170,40 +170,41 @@ name: inverse
 layout: true
 class: center, middle, inverse
 ---
-# Nipype - Interfaces & Workflows
+# Nipype
+# Interfaces & Workflows
 ## Learn and understand the basics
-### ~1h
+### ~1.5h
+
 ---
 name: content
-class: left, middle
+class: left
 layout: false
 name: intro
 
 .left-column[
 
 ## Basic Concepts
-### ~45min
+### ~90min
 ]
+
 .right-column[
-Nipype is very easy to learn, but nonetheless requires the understanding of the following basic concepts:
+Nipype is very easy to learn, but nonetheless requires the understanding of some basic concepts.
 
-* `Interfaces`
+For this reason, please go through the section `Basic Concepts` from the `nipype_tutorial`:
 
-* `Nodes`
+<img src="images/nipype_tutorial_basics.png" width="100%" />
 
-* `Workflows`
+### Recommended order
 
-* `Data Input`
+1. Start with the concepts highlighted in **green** to get the very basic.
+2. Look at the concepts in **blue** to get more freedom in using Nipype.
+3. If you still have time to spare, look at the concepts highlighted in **orange**.
 
-* `Data Output`
-
-* `Execution Plugins`
-
-Please go through the corresponding notebooks in the `Basic Concepts` section of the tutorial to learn more.
+]
 
 ---
 
-## Recap
+## Short Recap
 
 * **Interfaces**
 
@@ -238,23 +239,6 @@ Please go through the corresponding notebooks in the `Basic Concepts` section of
     ```
 ---
 
-## Additionally
-
-Nipype has many more important concepts to learn. Many are not so important at the very beginning but allow much more flexibility over data handeling and data flow.
-
-For this reason, we will briefly look at the following concepts:
-
-* `Iterables`
-
-* `IdentityInterface`
-
-* `Function Node`
-
-* `MapNode`
-
-* `nipypecli crash`, e.g how to handle errors and crashes
-
----
 layout: true
 class: center, middle, inverse
 ---

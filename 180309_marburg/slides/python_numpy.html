@@ -171,10 +171,10 @@ layout: true
 class: center, middle, inverse
 ---
 # Introduction to Numpy
-### ~40min
+### ~50min
 ---
 name: content
-class: left, middle
+class: left
 layout: false
 name: intro
 
@@ -191,7 +191,7 @@ name: exercise
 .left-column[
 
 ## Hands On
-### ~35min
+### ~45min
 ]
 .right-column[
 Please go now through the jupyter notebook `04_python_numpy.ipynb`
@@ -206,15 +206,18 @@ Please go now through the jupyter notebook `04_python_numpy.ipynb`
 >>> data = np.arange(10)
 >>> data[data%2==0]
 array([0, 2, 4, 6, 8])
-
+```
+```python
 # Elementwise operations
 >>> data**2
 array([ 0,  1,  4,  9, 16, 25, 36, 49, 64, 81])
-
+```
+```python
 # Basic reductions
 >>> data.std()
 2.8722813232690143
-
+```
+```python
 # And much more...
 ```
 ]

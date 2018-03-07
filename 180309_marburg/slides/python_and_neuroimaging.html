@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Nibabel & Nilearn</title>
+    <title>Python & Neuroimaging</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <style>
       @import url(https://fonts.googleapis.com/css?family=Droid+Serif);
@@ -170,7 +170,7 @@ name: inverse
 layout: true
 class: center, middle, inverse
 ---
-# Nibabel and Nilearn
+# Python & Neuroimaging
 ### ~1h
 ---
 name: intro
@@ -192,7 +192,7 @@ name: exercise1
 .left-column[
 
 ## Hands On
-### ~20min
+### ~15min
 ]
 .right-column[
 
@@ -208,16 +208,20 @@ name: important
 ```python
 # To import the module
 import nibabel as nb
-
+```
+```python
 # Load a brain image
 img = nb.load('func.nii.gz')
-
+```
+```python
 # Get Header, affine or data
 img.header, img.affine, img.get_data()
-
+```
+```python
 # Interactively view a brain image
 img.orthoview()
-
+```
+```python
 # Save a brain image
 new_img = nb.Nifti1Image(data, affine=img.affine, header=img.header)
 nb.save(new_img, '/folder/filename.nii.gz')
@@ -253,19 +257,24 @@ name: important
 
 ```python
 from nilearn import image
-
+```
+```python
 # Create a mean image
 mean = image.mean_img('func.nii.gz')
-
+```
+```python
 # Resample mean image to anatomy
 mean_new = image.resample_to_img(mean, anat)
-
+```
+```python
 # Smooth an image
 smoothed_mean = image.smooth_img(mean, fwhm=4)
-
+```
+```python
 # Clean image (to improve SNR)
 image.clean_img(func, detrend=True, standardize=False, t_r=TR)
-
+```
+```python
 # Treat a brain image like a numpy array with
 thr = image.threshold_img(mean, threshold='99%')
 cluster = nilearn.regions.connected_regions(thr)[0]
@@ -273,25 +282,28 @@ mask = nli.math_img('np.mean(img,axis=3) > 0', img=cluster)
 ```
 ---
 layout: true
-class: middle
+class: left
 ---
 
 ```python
 # Apply mask
 from nilearn.masking import apply_mask
 all_timecourses = apply_mask(func, mask)
-
+```
+```python
 # Revert mask
 from nilearn.masking import unmask
 img_timecourse = unmask(all_timecourses, mask)
-
+```
+```python
 # Perform Independent Component Analysis (ICA)
 from nilearn.decomposition import CanICA
 canica = CanICA(
     n_components=10, smoothing_fwhm=6, threshold=3.,
     verbose=10, random_state=0, n_jobs=-1, standardize=True)
 canica.fit(func)
-
+```
+```python
 # Perform Dictionary Learning
 from nilearn.decomposition import DictLearning
 dict_learning = DictLearning(
@@ -304,30 +316,34 @@ canica.fit(dict_learning)
 
 ```python
 from nilearn import plotting
-
+```
+```python
 # Plot Glass Brain
 plotting.plot_glass_brain(
     func_tmap, threshold=3, colorbar=True, title='fancy title',
     plot_abs=False, display_mode='lyrz')
-
+```
+```python
 # Overlay functional image onto anatomical image
 plotting.plot_stat_map(func_tmap, display_mode='z', cut_coords=5,
                        threshold=2, title="fancy title")
-
+```
+```python
 # Overlay two images ontop of each other
 plotting.plot_roi('anat1.mgz', 'anat2.nii.gz',
                   dim=-1, cut_coords=(0, 0, 0))
-
+```
+```python
 # Create plots with edges
 display = plotting.plot_anat(mean, dim=-0.5)
 display.add_edges(t1, color='r')
-
+```
+```python
 # Create 3D Surface Plot
 plotting.plot_surf_stat_map(
     fsaverage.infl_right, texture, hemi='right', title='fancy title',
     threshold=1., bg_map=fsaverage.sulc_right, view='lateral', cmap='cold_hot')
 plotting.show()
-
 ```
 ---
 
@@ -336,6 +352,14 @@ plotting.show()
 Nilearn provides many different ways to do machine learning on brain images. The machine learning backend is based on `scikit-learn`.
 
 To cover all of them here would explode the scope of this workshop.
+
+&nbsp;
+
+--
+
+## PyMVPA - Very good machine learning alternative
+
+Let's take a quick look at PyMVPA in `03c_pymvpa.ipynb`.
 
 ---
 layout: true
