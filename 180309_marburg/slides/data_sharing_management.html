@@ -1310,6 +1310,119 @@ name: bidsapps12
 
 .left[<small>[*Gorgolewski, K. J., presentaion at Stanford, January 2017](https://www.slideshare.net/chrisfilo1/fmriprep-robust-and-easy-to-use-fmri-preprocessing-pipeline)</small>]
 ---
+name: bidsapps12
+
+### data and BIDS
+
+#### BIDS apps - [FMRIPREP](http://fmriprep.readthedocs.io/en/latest/index.html)
+
+- FMRIPREP - how to get it, how to run it
+
+--
+
+	- "bare-metal" installation - not recommended
+
+	   - pip install fmriprep
+
+	   - dependencies: [FSL](https://fsl.fmrib.ox.ac.uk/fsl/fslwiki), [AFNI](https://afni.nimh.nih.gov), [ANTs](http://stnava.github.io/ANTs/), [C3D](https://sourceforge.net/projects/c3d/), [FreeSurfer](https://surfer.nmr.mgh.harvard.edu), [ICA-AROMA](https://github.com/maartenmennes/ICA-AROMA)
+
+--
+
+	- docker version
+
+	   - docker pull poldracklab/fmriprep
+
+	   - docker run -ti --rm \ </br>
+         -v filepath/to/data/dir:/data:ro \ </br>
+         -v filepath/to/output/dir:/out \ </br>
+         poldracklab/fmriprep:latest \ </br>
+         /data /out/out \ </br>
+         participant
+
+.left[<small>[*Gorgolewski, K. J., presentaion at Stanford, January 2017](https://www.slideshare.net/chrisfilo1/fmriprep-robust-and-easy-to-use-fmri-preprocessing-pipeline)</small>]
+---
+name: bidsapps12
+
+### data and BIDS
+
+#### BIDS apps - [FMRIPREP](http://fmriprep.readthedocs.io/en/latest/index.html)
+
+- FMRIPREP - outputs
+
+--
+
+ - T1w
+
+ 	- bias corrected volume
+
+ 	- brain mask
+
+ 	- global signal
+
+ 	- tissue segmentation (+probability map)
+
+ 	- affine and warp to MNI (both ways)
+
+.left[<small>[*Gorgolewski, K. J., presentaion at Stanford, January 2017](https://www.slideshare.net/chrisfilo1/fmriprep-robust-and-easy-to-use-fmri-preprocessing-pipeline)</small>]
+---
+name: bidsapps12
+
+### data and BIDS
+
+#### BIDS apps - [FMRIPREP](http://fmriprep.readthedocs.io/en/latest/index.html)
+
+- FMRIPREP - outputs
+
+--
+
+ - epi
+
+ 	- motion corrected images
+
+ 	- brain mask
+
+ 	- affine T1w
+
+ 	- tabular text file with all noise confoudnds
+
+ 	- all volumes in MNI and native (epi) space
+
+.left[<small>[*Gorgolewski, K. J., presentaion at Stanford, January 2017](https://www.slideshare.net/chrisfilo1/fmriprep-robust-and-easy-to-use-fmri-preprocessing-pipeline)</small>]
+---
+name: bidsapps12
+
+### data and BIDS
+
+#### BIDS apps - [FMRIPREP](http://fmriprep.readthedocs.io/en/latest/index.html)
+
+- FMRIPREP - outputs
+
+--
+
+ - let's check an [example report](http://fmriprep.readthedocs.io/en/latest/_static/sample_report.html) from the FMRIPREP docs
+
+--
+
+ - additionally, the [AROMA component classification](http://fmriprep.readthedocs.io/en/latest/_images/aroma.svg)
+
+.left-column[
+
+## Hands On
+## [FMRIPREP](http://fmriprep.readthedocs.io/en/latest/index.html)
+### ~5min
+]
+.right-column[
+Prerequisites:
+
+- workshop docker container up and running 
+
+
+Subsequently, use "tree" together with [FMRIPREP's docs](http://fmriprep.readthedocs.io/en/latest/outputs.html) to inspect FMRIPREP's comprehensive output!
+
+]
+
+.left[<small>[*FMRIPREP docs](http://fmriprep.readthedocs.io/en/latest/index.html)</small>]
+---
 layout: true
 class: center, middle, inverse
 ---
