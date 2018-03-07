@@ -47,6 +47,7 @@ RUN conda create -y -q --name py27 python=2.7 \
                                    jupyter \
                                    jupyter_contrib_nbextensions \
                                    matplotlib \
+                                   mayavi \
                                    nbformat \
                                    nibabel \
                                    numpy \
