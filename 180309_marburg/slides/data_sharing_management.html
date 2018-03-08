@@ -221,7 +221,7 @@ data sharing:
 
       - data sharing is crucial for science, no matter if on a small (local colleagues) or large scale (openly on the web)
 
-      - data sharin become more and more mandatory, journals and funding agencies demand the (raw) data to be publicly available (if you like it or not, but trust us: it's easy, doesn't mean any harm and is the right thing to do)
+      - data sharing becomes more and more mandatory, journals and funding agencies demand the (raw) data to be publicly available (if you like it or not, but trust us: it's easy, doesn't mean any harm and is the right thing to do)
 
 --
 
@@ -937,6 +937,7 @@ name: bidsapps10
 - automated? --> major differences between algorithms
 
 --
+
 - both:
 
 --
@@ -1017,7 +1018,7 @@ name: bidsapps12
 
 	  - docker pull poldracklab/MRIQC
 
-	  - docker run -it --rm -v <bids_dir>:/data:ro -v <output_dir>:/out poldracklab/mriqc:latest /data /out participant 
+	  - docker run -it --rm -v <bids_dir>:/data:ro -v <output_dir>:/out poldracklab/mriqc:latest /data /out participant
 
 
 .left[<small>[*Esteban, O., FMRIPREP and MRIQC Focus at Stanford, January 2017](https://www.slideshare.net/OscarEsteban5/fmriprep-mriqc-focus-mriqc) and [MRIQC docs](https://mriqc.readthedocs.io/en/latest/docker.html)</small>]
@@ -1422,6 +1423,397 @@ Subsequently, use "tree" together with [FMRIPREP's docs](http://fmriprep.readthe
 ]
 
 .left[<small>[*FMRIPREP docs](http://fmriprep.readthedocs.io/en/latest/index.html)</small>]
+---
+name: bidsapps12
+
+### data and BIDS
+
+#### BIDS apps - [mindboggle](http://www.mindboggle.info)
+
+<img src="images/mindboggle_1.png" width="90%" />
+<img src="images/mindboggle_2.png" width="90%" />
+
+.left[<small>*[mindboggle docs](http://www.mindboggle.info)</small>]
+
+---
+name: bidsapps12
+
+### data and BIDS
+
+#### BIDS apps - [mindboggle](http://www.mindboggle.info) - who that?
+
+- a comprehensive and extensive pipeline for structural images
+
+- computes & outputs volume, surface, and tabular data containing label, feature, and shape information for further analysis
+
+- <img src="images/mindboggle_outputs.png" width="90%" />
+
+- FreeSurfer (recon-all) > ANTs (antsCorticalThickness) > mindboggle  
+
+.left[<small>*[mindboggle docs](http://www.mindboggle.info) & [mindboggle paper](https://doi.org/10.1371/journal.pcbi.1005350)</small>]
+
+---
+name: bidsapps12
+
+### data and BIDS
+
+#### BIDS apps - [mindboggle](http://www.mindboggle.info) - the pipeline
+
+<img src="images/mindboggle_workflow_1.png" width="90%" />
+
+.left[<small>*[mindboggle docs](http://www.mindboggle.info) & [mindboggle paper](https://doi.org/10.1371/journal.pcbi.1005350)</small>]
+
+---
+name: bidsapps12
+
+### data and BIDS
+
+#### BIDS apps - [mindboggle](http://www.mindboggle.info) - the pipeline
+
+<img src="images/mindboggle_workflow_2.png" width="90%" />
+
+.left[<small>*[mindboggle docs](http://www.mindboggle.info) & [mindboggle paper](https://doi.org/10.1371/journal.pcbi.1005350)</small>]
+
+---
+name: bidsapps12
+
+### data and BIDS
+
+#### BIDS apps - [mindboggle](http://www.mindboggle.info) - the pipeline
+
+<img src="images/mindboggle_workflow_3.png" width="90%" />
+
+.left[<small>*[mindboggle docs](http://www.mindboggle.info) & [mindboggle paper](https://doi.org/10.1371/journal.pcbi.1005350)</small>]
+
+---
+name: bidsapps12
+
+### data and BIDS
+
+#### BIDS apps - [mindboggle](http://www.mindboggle.info) - the pipeline
+
+<img src="images/mindboggle_workflow_4.png" width="90%" />
+
+
+.left[<small>*[mindboggle docs](http://www.mindboggle.info) & [mindboggle paper](https://doi.org/10.1371/journal.pcbi.1005350)</small>]
+
+---
+name: bidsapps12
+
+### data and BIDS
+
+#### BIDS apps - [mindboggle](http://www.mindboggle.info) - the pipeline
+
+<img src="images/mindboggle_workflow_5.png" width="90%" />
+
+
+.left[<small>*[mindboggle docs](http://www.mindboggle.info) & [mindboggle paper](https://doi.org/10.1371/journal.pcbi.1005350)</small>]
+
+---
+name: bidsapps12
+
+### data and BIDS
+
+#### BIDS apps - [mindboggle](http://www.mindboggle.info) - the pipeline
+
+<img src="images/mindboggle_workflow_6.png" width="90%" />
+
+
+.left[<small>*[mindboggle docs](http://www.mindboggle.info) & [mindboggle paper](https://doi.org/10.1371/journal.pcbi.1005350)</small>]
+
+---
+name: bidsapps12
+
+### data and BIDS
+
+#### BIDS apps - [mindboggle](http://www.mindboggle.info) - the pipeline
+
+<img src="images/mindboggle_workflow_7.png" width="90%" />
+
+
+.left[<small>*[mindboggle docs](http://www.mindboggle.info) & [mindboggle paper](https://doi.org/10.1371/journal.pcbi.1005350)</small>]
+
+---
+name: bidsapps12
+
+### data and BIDS
+
+#### BIDS apps - [mindboggle](http://www.mindboggle.info) - the pipeline
+
+<img src="images/mindboggle_workflow_8.png" width="90%" />
+
+
+.left[<small>*[mindboggle docs](http://www.mindboggle.info) & [mindboggle paper](https://doi.org/10.1371/journal.pcbi.1005350)</small>]
+
+---
+name: bidsapps12
+
+### data and BIDS
+
+#### BIDS apps - [mindboggle](http://www.mindboggle.info) - how to?
+
+- get the docker image
+
+	- docker pull bids/mindboggle
+
+--
+
+- run it
+
+	- docker run -ti -v  \ </br> $path/to/data:/home/jovyan/work/data  \ </br> bids/mindboggle  \ </br> /home/jovyan/work/data  \ </br> /home/jovyan/work/data/derivatives/  \ </br> participant
+
+- attention!
+
+	- high computational cost (recon-all alone usually 8-24 or more hours (depending on your machine))
+
+	- one might have to increase the memory allocated by docker (to at least 5GB)
+
+	- maybe don't run the complete pipeline on your laptop
+
+.left[<small>*[mindboggle docs](http://www.mindboggle.info) & [mindboggle paper](https://doi.org/10.1371/journal.pcbi.1005350)</small>]
+
+---
+name: bidsapps12
+
+### data and BIDS
+
+#### BIDS apps - [C-PAC](https://fcp-indi.github.io)
+
+.center[<img src="images/cpac_logo.png" width="60%" />]
+
+.left[<small>*[cpac docs](http://fcp-indi.github.io/docs/user/index.html)</small>]
+
+---
+name: bidsapps12
+
+### data and BIDS
+
+#### BIDS apps - [C-PAC](https://fcp-indi.github.io) - who that?
+
+- pipeline to automate preprocessing and analysis of large-scale datasets 
+
+- most cutting edge functional connectivity preprocessing and analysis algorithms 
+
+- configurable to enable “plurality” – evaluate different processing parameters and strategies 
+
+- automatically identifies and takes advantage of parallelism on multi-threaded, multi-core, and cluster architectures 
+
+- “warm restarts” – only re-compute what has changed 
+
+- open science – open source 
+
+.left[<small>*[cpac docs](http://fcp-indi.github.io/docs/user/index.html)</small>]
+
+---
+name: bidsapps12
+
+### data and BIDS
+
+#### BIDS apps - [C-PAC](https://fcp-indi.github.io) - possibilities 
+
+.center[<img src="images/cpac_processing.png" width="100%" />]
+
+.left[<small>*[cpac docs](http://fcp-indi.github.io/docs/user/index.html)</small>]
+
+---
+name: bidsapps12
+
+### data and BIDS
+
+#### BIDS apps - [C-PAC](https://fcp-indi.github.io) - how to? 
+
+- get the docker image
+
+	- docker pull bids/cpac
+
+--
+
+- run it
+
+	- docker run -ti  \ </br> -v /tmp:/scratch  \ </br> -v /path/to/data:/bids_dataset  \ </br> -v /path/to/outputs:/outputs  \ </br> bids/cpac  \ </br> /bids_dataset /outputs participant
+
+- run it with the GUI (requires mapping your X socket)
+
+	- add the following at the beginning of the docker command
+
+	- --privileged \
+        -e DISPLAY=$IP:0 \
+        -v /tmp/.X11-unix:/tmp/.X11-unix
+
+.left[<small>*[cpac docs](http://fcp-indi.github.io/docs/user/index.html)</small>]
+
+---
+class: center, middle
+name: bidsapps12
+
+###wrote an awesome workflow and/or want to make your research reproducible? </br>
+###make your own BIDS app and/or docker image
+
+--
+
+### sounds cool, but I'm not profienct enough / I have a hard time becoming active
+
+--
+### Well, say no more...
+
+---
+name: bidsapps12
+
+### data and BIDS... AND docker
+
+#### [neurodocker](https://github.com/kaczmarj/neurodocker) & [porcupine](https://timvanmourik.github.io/Porcupine/)  
+
+- neurodocker is a Python project that generates custom dockerfiles for neuroimaging and minifies existing docker images
+
+	- get it via docker pull kaczmarj/neurodocker:v0.3.1
+
+	- go ahead and build your own image:
+
+	docker run --rm kaczmarj/neurodocker:v0.3.2 generate \
+
+    -- "base" (ubuntu, neurodebian, etc.)
+
+	-- program 1 (e.g. apt, git)
+
+	-- program 2 (e.g. FSL, AFNI)
+
+	-- python-env (e.g. python3.6, numpy, nipype)
+
+	-- user & env settings (e.g. working dir)
+
+.left[<small>*[neurodocker docs](https://github.com/kaczmarj/neurodocker)</small>]
+
+---
+name: bidsapps12
+
+### data and BIDS... AND docker
+
+#### [neurodocker](https://github.com/kaczmarj/neurodocker) & [porcupine](https://timvanmourik.github.io/Porcupine/)  
+
+- neurodocker is a Python project that generates custom dockerfiles for neuroimaging and minifies existing docker images
+
+	- an example usage of neurodocker:
+
+<img src="images/neurodocker_example.png" width="100%"/>
+
+---
+### data and BIDS... AND docker
+
+#### [neurodocker](https://github.com/kaczmarj/neurodocker) & [porcupine](https://timvanmourik.github.io/Porcupine/)  
+
+- neurodocker is a Python project that generates custom dockerfiles for neuroimaging and minifies existing docker images
+
+.left-column[
+
+## Hands On
+## [neurodocker](https://github.com/kaczmarj/neurodocker)
+### ~5min
+]
+.right-column[
+
+- go ahead and build your first own docker image
+
+	- open a terminal
+
+	- create and build a minimal docker image, containing neurodebian:
+
+	docker run --rm \ </br> kaczmarj/neurodocker:master generate \ </br> -b neurodebian:stretch-non-free \ </br> -p apt \ </br> | docker build - 
+
+]
+---
+name: bidsapps12
+
+### data and BIDS... AND docker
+
+#### [neurodocker](https://github.com/kaczmarj/neurodocker) & [porcupine](https://timvanmourik.github.io/Porcupine/)  
+
+- more the visual type and/or want to know a great teaching/practice tool?
+
+--
+<img src="images/porcupine.png" width="100%"/>
+
+.left[<small>*[by Tim van Mourik](https://github.com/TimVanMourik/Porcupine), check the [Porcupine preprint here](https://www.biorxiv.org/content/early/2017/09/12/187344) </small>]
+
+
+---
+name: bidsapps12
+
+### data and BIDS... AND docker
+
+#### [neurodocker](https://github.com/kaczmarj/neurodocker) & [porcupine](https://timvanmourik.github.io/Porcupine/)  
+
+.left-column[
+
+## Hands On
+## [porcupine](https://github.com/TimVanMourik/Porcupine)
+### ~5min
+]
+.right-column[
+
+- go ahead and play around with porcupine, maybe recreating your standard pipeline
+
+	- get it via docker pull timvanmourik/porcupine or the [installer files](https://github.com/TimVanMourik/Porcupine/releases/tag/1.4.0)
+
+	- start the application
+
+	- porcupine via docker (requires mapping your X socket)
+
+	docker run --rm -ti \ </br> --privileged -e DISPLAY=$IP:0 \ </br> -v /tmp/.X11-unix:/tmp.X11-unix \ </br> timvanmourik/porcupine   
+
+]
+---
+name: bidsapps12
+
+### data and BIDS
+
+#### [PyBIDS](https://github.com/INCF/pybids)  
+
+- a Python library to centralize interactions with datasets conforming BIDS (Brain Imaging Data Structure) format
+
+--
+
+.left-column[
+
+## Hands On
+## [PyBIDS](https://github.com/INCF/pybids)
+### ~5min
+]
+.right-column[
+
+- please go through the PyBIDS.ipynb notebook
+
+]
+
+
+---
+class: center, middle
+name: bidsapps12
+
+##cool data, now get it out there!
+
+---
+class: center, middle
+name: bidsapps12
+
+##but, my data is too precious...
+
+---
+class: center, middle
+name: bidsapps12
+
+##never go full gollum on your data
+
+--
+
+# make more data accessible to more researchers
+
+###(for the already discussed reasons)
+
+---
+name: bidsapps12
+
+##[openneuro](https://openneuro.org) and
+
 ---
 layout: true
 class: center, middle, inverse
