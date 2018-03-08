@@ -86,21 +86,11 @@ RUN bash -c "source activate neuro \
     && pip install -q --no-cache-dir \
         git+git://github.com/mne-tools/mne-python.git@10b9ab9ef352a5f2fca4e786046b3c7ca7cf1098"
 
-<<<<<<< HEAD
-# Make sure that jupyter notebook can chose the environments
-RUN bash -c "source activate neuro \
-    && conda install -y -q nb_conda \
-                           bokeh \
-                           holoviews \
-                           plotly \
-                           scikit-image"
-=======
 USER root
 
 # Install workshop notebooks and slides
 COPY [".", "/home/neuro/workshop"]
 RUN chown -R neuro /home/neuro/workshop
->>>>>>> 3b14abfa69a4520f141ea883a99c5030d7fe9c0d
 
 USER neuro
 
