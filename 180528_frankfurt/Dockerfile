@@ -54,9 +54,11 @@ USER root
 # Install workshop notebooks and slides
 COPY [".", "/home/neuro/workshop"]
 RUN chown -R neuro /home/neuro/workshop
+RUN rm -rf /opt/conda/pkgs/*
 
 USER neuro
 
+RUN mkdir -p ~/.jupyter && echo c.NotebookApp.ip = \"0.0.0.0\" > ~/.jupyter/jupyter_notebook_config.py
 WORKDIR /home/neuro
 
 CMD ["jupyter-notebook"]
