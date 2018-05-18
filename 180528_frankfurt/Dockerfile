@@ -25,9 +25,9 @@ USER neuro
 #---------------------------------------
 # Install MNE in the 'neuro' environment
 #---------------------------------------
-RUN bash -c 'curl -L https://raw.githubusercontent.com/mne-tools/mne-python/master/environment.yml -o /opt/conda/environment.yml'
-RUN conda env create -q --name mne --file /opt/conda/environment.yml \
-    && rm -f /opt/conda/environment.yml
+RUN bash -c 'curl -L https://raw.githubusercontent.com/mne-tools/mne-python/master/environment.yml -o /opt/miniconda-latest/environment.yml'
+RUN conda env create -q --name mne --file /opt/miniconda-latest/environment.yml \
+    && rm -f /opt/miniconda-latest/environment.yml
 
 #------------------------------------------------------------
 # Update conda environment 'neuro' for visualization examples
@@ -54,7 +54,7 @@ USER root
 # Install workshop notebooks and slides
 COPY [".", "/home/neuro/workshop"]
 RUN chown -R neuro /home/neuro/workshop
-RUN rm -rf /opt/conda/pkgs/*
+RUN rm -rf /opt/miniconda-latest/pkgs/*
 
 USER neuro
 
