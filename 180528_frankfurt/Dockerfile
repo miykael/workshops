@@ -3,7 +3,7 @@
 # For the python and nipype part of the workshop use the following command:
 #    docker run -it --rm -p 8888:8888 miykael/workshop_frankfurt
 
-FROM miykael/nipype_tutorial
+FROM miykael/nipype_tutorial:latest
 
 ARG DEBIAN_FRONTEND=noninteractive
 
@@ -48,6 +48,18 @@ RUN bash -c "source activate neuro \
     && pip install pdvega \
     && jupyter nbextension install --sys-prefix --py vega3 \
     && jupyter nbextension enable vega3 --py --sys-prefix"
+
+USER root
+
+# Install software for PyMVPA
+RUN apt-get update -qq \
+    && apt-get install -y -q --no-install-recommends swig \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+USER neuro
+RUN bash -c "source activate neuro \
+    && pip install --upgrade pip pymvpa2"
 
 USER root
 
