@@ -182,7 +182,7 @@ name: intro
 
 * `numpy` is **the** fundamental package for scientific computing with Python
 
-* `numpy` runs very quickly and is the first step to optimize your code
+* `numpy` runs very quickly and is the first step to optimizing your code
 
 ---
 
@@ -194,16 +194,22 @@ name: exercise
 ### ~45min
 ]
 .right-column[
-Please go now through the jupyter notebook `02_python_numpy.ipynb`
+Please go now through the jupyter notebook [`workshop/notebooks/02_python_numpy.ipynb`](../../../notebooks/workshop/notebooks/python/02_python_numpy.ipynb).
+
 ]
 --
 .right-column[
 
 ##Important Points
+```python
+import numpy as np
+```
 
 ```python
 # Indexing & Slicing
 >>> data = np.arange(10)
+array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+
 >>> data[data%2==0]
 array([0, 2, 4, 6, 8])
 ```
