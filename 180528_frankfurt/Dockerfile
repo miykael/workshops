@@ -43,12 +43,6 @@ RUN bash -c "source activate neuro \
                            scipy=0.19" \
     && conda clean -tipsy
 
-# Install PdVega
-RUN bash -c "source activate neuro \
-    && pip install pdvega \
-    && jupyter nbextension install --sys-prefix --py vega3 \
-    && jupyter nbextension enable vega3 --py --sys-prefix"
-
 USER root
 
 # Install software for PyMVPA
